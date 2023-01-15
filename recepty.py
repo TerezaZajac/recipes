@@ -82,7 +82,7 @@ roll = Ingredience('rohlik', u_pcs)
 cinnamon = Ingredience('skorice', u_g)
 
 
-ryzak = Receipt('nakyp', c_lunch)
+ryzak = Receipt('ryzovy nakyp', c_lunch)
 ryzak.add_ing(rice, 0.5)
 ryzak.add_ing(milk, 1)
 ryzak.add_ing(butter, 0.02)
@@ -111,6 +111,5 @@ krupicna_kase.add_tag(t_vegetarian)
 krupicna_kase.add_tag(t_sweet)
 
 print(krupicna_kase)
-print(ryzak)
 print(zemlbaba)
 print(milk.print_all_receipts())
