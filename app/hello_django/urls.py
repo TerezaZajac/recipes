@@ -3,10 +3,10 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from upload.views import image_upload
+from planner.views import planner_index
 
 urlpatterns = [
-    path("", image_upload, name="upload"),
+    path("", planner_index, name="index"),
     path("admin/", admin.site.urls),
 ]
 

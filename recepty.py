@@ -19,7 +19,7 @@ class Unit:
     def __str__(self) -> str:
         return self.label
 
-class Receipt:
+class Recipe:
     def __init__(self, label: str, course: Course) -> None:
         self.label = label
         self.course = course
@@ -31,7 +31,7 @@ class Receipt:
 
     def add_ing(self, ing, amount):
         self.ing[ing.label] = [ing, amount]
-        ing.add_receipt(self)
+        ing.add_recipe(self)
 
     def __str__(self) -> str:
         r = ''
@@ -46,16 +46,16 @@ class Ingredience:
     def __init__(self, label, unit: Unit) -> None:
         self.label = label
         self.unit = unit
-        self.receipts = []
+        self.recipe = []
 
     def __str__(self) -> str:
         return self.label
 
-    def add_receipt(self, receipt: Receipt):
-        self.receipts.append(receipt)
+    def add_recipe(self, recipe: Recipe):
+        self.recipe.append(recipe)
 
-    def print_all_receipts(self):
-        r = ', '.join(it.label for it in self.receipts)
+    def print_all_recipe(self):
+        r = ', '.join(it.label for it in self.recipe)
         return f'{self.label} je potreba pro: {r}'
 
 c_breakfast = Course('snidane')
@@ -82,7 +82,7 @@ roll = Ingredience('rohlik', u_pcs)
 cinnamon = Ingredience('skorice', u_g)
 
 
-ryzak = Receipt('ryzovy nakyp', c_lunch)
+ryzak = Recipe('ryzovy nakyp', c_lunch)
 ryzak.add_ing(rice, 0.5)
 ryzak.add_ing(milk, 1)
 ryzak.add_ing(butter, 0.02)
@@ -91,7 +91,7 @@ ryzak.add_ing(sugar_crystal, 0.2)
 ryzak.add_tag(t_vegetarian)
 ryzak.add_tag(t_sweet)
 
-zemlbaba = Receipt('zemlovka', c_lunch)
+zemlbaba = Recipe('zemlovka', c_lunch)
 zemlbaba.add_ing(milk, 1.5)
 zemlbaba.add_ing(roll, 10)
 zemlbaba.add_ing(sugar_crystal, 0.6)
@@ -102,7 +102,7 @@ zemlbaba.add_ing(apple, 2)
 zemlbaba.add_tag(t_vegetarian)
 zemlbaba.add_tag(t_sweet)
 
-krupicna_kase = Receipt('krupicna kase', c_breakfast)
+krupicna_kase = Recipe('krupicna kase', c_breakfast)
 krupicna_kase.add_ing(milk, 0.5)
 krupicna_kase.add_ing(butter, 0.04)
 krupicna_kase.add_ing(semolina,0.02)
@@ -112,4 +112,4 @@ krupicna_kase.add_tag(t_sweet)
 
 print(krupicna_kase)
 print(zemlbaba)
-print(milk.print_all_receipts())
+print(milk.print_all_recipe())

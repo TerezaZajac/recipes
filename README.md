@@ -43,9 +43,10 @@ Uses gunicorn + nginx.
 tere:
     - rozbehnout kontejner:
         docker compose up  
+        docker compose up -d #(-d znamena daemon necha bezet docker na pozadi a neni potreba pracovat v jinem terminalu)
 
     - prihlasit se dovnitr kontejneru:
-        Docker compose exec web sh
+        docker compose exec web sh
 
     - ulozit zmeny modelu
         python manage.py makemigrations ##napispravnejmenosouboru
@@ -58,4 +59,7 @@ tere:
 
     - killnout kontejner:
         docker compose stop 
+    
+    - popisuje aktualni stav
+        docker ps -a
 
